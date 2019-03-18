@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class MeniuClasses1_12 extends PApplet {
+public class MeniuClasses1_13 extends PApplet {
 
 
 
@@ -135,7 +135,14 @@ class MenuBox {
     }
     }
     rectMode(CENTER);
+    if(STAGE != 3)
+    {
     rect(xpos, ypos, 200, 50, 10);
+    }
+    if(STAGE == 3)
+    {
+      rect(xpos, ypos, 200*rX, 50*rY, 10*rY);
+    }
     
       
   }
@@ -326,7 +333,7 @@ public void TableFct()
   
 }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "MeniuClasses1_12" };
+    String[] appletArgs = new String[] { "MeniuClasses1_13" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
