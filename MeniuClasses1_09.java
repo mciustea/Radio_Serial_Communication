@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class MeniuClasses1_13 extends PApplet {
+public class MeniuClasses1_14 extends PApplet {
 
 
 
@@ -221,7 +221,7 @@ public void ComPorts(){
   while(txt.indexOf("COM", index) >= 0)
   {
     String Indexul = "[" + index + "]";
-    text(Indexul, indent + (rX*300), Ypozitie+count*25);
+    text(Indexul, indent + (rX*300), Ypozitie+count*25*rX);
     count++;
    index=txt.indexOf("COM", index) + 1;
   } 
@@ -333,7 +333,7 @@ public void TableFct()
   
 }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "MeniuClasses1_13" };
+    String[] appletArgs = new String[] { "MeniuClasses1_14" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
