@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class MeniuClasses1_10 extends PApplet {
+public class MeniuClasses1_11 extends PApplet {
 
 
 
@@ -38,6 +38,8 @@ float YSerialInput;
 float indent; 
 float Ypozitie;
 float YposSerial;
+float rX;
+float rY;
 float[] vals;
 
 PFont f;
@@ -51,7 +53,8 @@ public void setup(){
   size(displayWidth/2, displayHeight/2);
   
   f = createFont("Arial",16,true);
-  
+  rX = displayWidth/1920;
+  rY = displayHeight/1080;
   float XBox = displayWidth/4;
   float YGraph = displayHeight*1/10;
   float YSerial = displayHeight*2/10;
@@ -137,9 +140,9 @@ class MenuBox {
   }
   public void textPI(){
     textAlign(CENTER);
-    textSize(20);
+    textSize(20*rX);
     fill(0);
-    text("SELECTED COM PORT:",xpos-(displayWidth*220/1920), ypos+10);
+    text("SELECTED COM PORT:",xpos-(rX*220), ypos+10*rY);
   }
   
 }
@@ -172,11 +175,12 @@ public void ComPorts(){
   
   textFont(f);
   textAlign(CENTER);
+  textSize(18*rX);
   //fill(0);
   
   text("Enter Serial PORT NUMBER [0-99999] from Port Table \n Hit Enter to Save the Selection. \n Hit 'M' Key to Return to Menu ", indent, Ypozitie);
-  text("Desired PORT NUMBER:_____________",indent -100*displayWidth/1920, Ypozitie + 75*displayHeight/1080); 
-  text(typing,indent - 30*displayWidth/1920, Ypozitie + 75*displayHeight/1080);
+  text("Desired PORT NUMBER:_____________",indent -100*rX, Ypozitie + 75*rY); 
+  text(typing,indent - 30*rX, Ypozitie + 75*rY);
   //text(saved,indent,YposSerial);
   text(PORT,indent,YposSerial);
   
@@ -191,11 +195,11 @@ public void ComPorts(){
   while(txt.indexOf("COM", index) >= 0)
   {
     String Indexul = "[" + index + "]";
-    text(Indexul, indent + (displayWidth*300/1920), Ypozitie+count*25);
+    text(Indexul, indent + (rX*300), Ypozitie+count*25);
     count++;
    index=txt.indexOf("COM", index) + 1;
   } 
-  text(txt, indent+400*displayWidth/1920, Ypozitie);
+  text(txt, indent+400*rX, Ypozitie);
   
  
   
@@ -285,19 +289,19 @@ public void TableFct()
   
   fill(255, 255, 0);
   
-  rect(indent+displayWidth*350/1920, Ypozitie+displayHeight*200/1080, 200, 500);
-  rect(indent+displayWidth*350/1920, Ypozitie+displayHeight*200/1080, 0, 500);
-  rect(indent+displayWidth*350/1920, Ypozitie-15, 200, 0);
+  rect(indent+rX*350, Ypozitie+rY*200, 200*rX, 500*rY);
+  rect(indent+rX*350, Ypozitie+rY*200, 0, 500*rY);
+  rect(indent+rX*350, Ypozitie-15*rY, 200*rX, 0);
   
   fill(0);
   textMode(CENTER);
-  textSize(16);
-  text("Port Number", indent+displayWidth*300/1920, Ypozitie-20);
-  text("Port Name", indent+400*displayWidth/1920, Ypozitie-20);
+  textSize(16*rY);
+  text("Port Number", indent+rX*300, Ypozitie-20*rY);
+  text("Port Name", indent+400*rX, Ypozitie-20*rY);
   
 }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "MeniuClasses1_10" };
+    String[] appletArgs = new String[] { "MeniuClasses1_11" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
